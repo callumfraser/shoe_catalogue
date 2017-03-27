@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <link rel="stylesheet" href="shoes.css">
+      <title>Shoes 'R' Us</title>
+      <script src="handlebars-v4.0.5.js"></script>
+    </head>
+
+    <body>
+
+    <div class="heading">
+      <div class='headTxt'>
+      <h1>Welcome to the premium online shoe website explorer page</h1>
+    </div>
+    </div>
+   <div class="stockChange" align="right">
+     <button type="button" onclick="hideShow()">Show/Hide Stock Input</button>
+     <p class="stockP">
+    Add to stock here:<br><br>
+    Brand: <input type="text" id='newBrand'></input><br>
+    Colour: <input type='text' id='newColour'></input><br>
+    Date Released: <input type='text' id='newRelDate'></input><br>
+    Retail price: <input type='text' id='newPrice'></input><br>
+    Sizes available: <input type='text' id='newSizes'></input><br>
+    Type amount available for each size (starting with size 1) separated by commas. Example: if there are 3 in size 1, 4 in size 2 and 7 in size 3 the input will be: 3,4,7
+    <button type="button" class="addStock">Add to stock</button></p>
+   </div>
+
+   <div class="input-area">
+     <!-- Select what category you want to use for your search: <br>
+     <input type="radio" name="filter" value="Release Date" class="searchFilt" checked="checked"> Date Released
+     <input type="radio" name="filter" value="Colour" class="searchFilt"> Colour
+     <input type="radio" name="filter" value="Brand" class="searchFilt"> Brand
+     <button type="button" class="searchChange">Start a new search</button><br><br> -->
+
+     Please select your size:
+     <select class="size">
+       <option value="0">1</option>
+       <option value="1">2</option>
+       <option value="2">3</option>
+       <option value="3">4</option>
+       <option value="4">5</option>
+       <option value="5">6</option>
+       <option value="6">7</option>
+       <option value="7">8</option>
+       <option value="8">9</option>
+       <option value="9">10</option>
+       <option value="10">11</option>
+       <option value="11">12</option>
+       <option value="12">13</option>
+       <option selected disabled hidden value="notSize">Select a size</option>
+     </select>
+     <br><br>
+    Please select your colour:
+     <select class="colour">
+     <option selected value="notOption">All colours</option>
+     <option value="orange" class="colorOptions">Orange</option>
+     <option value="blue" class="colorOptions">Blue</option>
+     <option value="purple" class="colorOptions">Purple</option>
+     <option value="grey" class="colorOptions">Grey</option>
+     <option value="black" class="colorOptions">Black</option>
+     <option value="yellow" class="colorOptions">Yellow</option>
+     <script id="newColorOption"type="text/x-handlebars-template">
+     <option value='{{newColorHandle}}' class="colorOptions">{{newColorHandleMenu}}</option>
+     </script>
+   </select><br><br>
+     Please select your release date:
+     <select class="dateRel">
+     <option selected value="notOption">All release dates</option>
+     <option value="2010" class="dateRelOptions">2010</option>
+     <option value="2011" class="dateRelOptions">2011</option>
+     <option value="2012" class="dateRelOptions">2012</option>
+     <option value="2013" class="dateRelOptions">2013</option>
+     <option value="2014" class="dateRelOptions">2014</option>
+     <option value="2015" class="dateRelOptions">2015</option>
+     <option value="2016" class="dateRelOptions">2016</option>
+   </select><br><br>
+     Please select your brand: <select class="brand">
+     <option selected value="notOption">All brands</option>
+     <option value="Adidas" class="brandOptions">Adidas</option>
+     <option value="Nike" class="brandOptions">Nike</option>
+     <option value="Superga" class="brandOptions">Superga</option>
+     <option value="Reebok" class="brandOptions">Reebok</option>
+     <option value="Puma" class="brandOptions">Puma</option>
+     <script id="newBrandOption"type="text/x-handlebars-template">
+     <option value='{{newBrandHandle}}' class="brandOptions">{{newBrandHandleMenu}}</option>
+     </script>
+     </select>
+     <br><br>
+
+
+     <button type="button" class="submit">Search for shoes!</button>
+
+
+   </div>
+
+<div class="output-zone" align="left">
+
+</div>
+
+<script id="table"type="text/x-handlebars-template">
+<table class="table">
+  The following shoes are available in size {{size}}:
+  <tr>
+    <th>Brand</th>
+    <th>Colour</th>
+    <th>Date Released</th>
+    <th>Price</th>
+    <th>Quantity</th>
+  </tr>
+    {{#each filter3}}
+  <tr>
+    <td>{{brand}}</td>
+    <td>{{color}}</td>
+    <td>{{releaseDate}}</td>
+    <td>{{price}}</td>
+    <td>{{sizeIng size}}</td>
+  </tr>
+    {{/each}}
+</table>
+
+</script>
+    </body>
+
+
+
+    <script src="shoes.js" charset="utf-8"></script>
+
+    </html>
